@@ -2,6 +2,8 @@ $(document).ready(function(){
     var audio = document.getElementById("audio");
     
     //Variables Generales para el Test de las Series ppdd
+    var Respuesta = ''; //Almacena la respuesta del Sujeto
+    
     var Modalidad = ''; //'rojo', Corsi Simple | 'azul', Corsi con Interferencia
 
     var Habilitar_Clic = 0; //Permite habilitar el $('div[class="bloques"]').on('click'... sólo cuando responde el sujeto
@@ -84,9 +86,7 @@ $(document).ready(function(){
         
         //Registro la respuesta
         var Id = $(Selector).attr("id").substr(1);
-        var Input = $('#Respuesta').val();
-        var Suma = Input + Id;
-        $('#Respuesta').val(Suma); 
+        Respuesta = Respuesta + Id;
         
         //Se pinta Rojo por 325 ms y luego se despinta
         Pintar(Selector);
@@ -473,7 +473,7 @@ setInterval(update, 1000);
             break;
 
             case 3: Consigna_Secuencia('Vamos a probar con uno de tres cuadrados rojos', '2,4,1');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Numero_de_Tarea +=1;
             break;
 
@@ -487,32 +487,32 @@ setInterval(update, 1000);
 
             //Serie 3
             case 5: Consigna_Boton('Esa fue la práctica.<br> Ahora vamos a empezar con la tarea.','Vamos a arrancar con las series de tres cuadrados rojos', '5,2,4');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Numero_de_Tarea +=1;
             break; 
 
-            case 6: Respuesta1 = $('#Respuesta').val();  //Almaceno la Respuesta
+            case 6: Respuesta1 = Respuesta;  //Almaceno la Respuesta
             Correccion(Respuesta1,'524');                //Corrijo
-            $('#Respuesta').val("");                     //Vacio el input type text
+            Respuesta = '';                     //Vacio el input type text
             Secuencia('9,2,6');
             Numero_de_Tarea +=1;
             break; 
 
-            case 7: Respuesta2 = $('#Respuesta').val();
+            case 7: Respuesta2 = Respuesta;
             Correccion(Respuesta2, '926');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Secuencia ('3,8,5');
             Numero_de_Tarea +=1;
             break; 
 
             //Serie 4
-            case 8:Respuesta3 = $('#Respuesta').val();
+            case 8:Respuesta3 = Respuesta;
 
             Correccion(Respuesta3, '385');
             Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             
                 if (Errores <2){
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     
                     Errores = 0;
                     Respuesta1 = "";
@@ -520,7 +520,7 @@ setInterval(update, 1000);
                     Respuesta3 = "";
 
                     Consigna_Secuencia('Vamos a arrancar con las series de cuatro cuadrados rojos', '2,9,6,4');
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     Numero_de_Tarea +=1;
                     break
                 ;}
@@ -530,28 +530,28 @@ setInterval(update, 1000);
                     break;
                 } 
             
-            case 9: Respuesta1 = $('#Respuesta').val();    
+            case 9: Respuesta1 = Respuesta;    
             Correccion(Respuesta1,'2964');                 
-            $('#Respuesta').val("");                       
+            Respuesta = '';                       
             Secuencia('6,1,3,2');
             Numero_de_Tarea +=1;
             break; 
 
-            case 10: Respuesta2 = $('#Respuesta').val();
+            case 10: Respuesta2 = Respuesta;
             Correccion(Respuesta2, '6132');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Secuencia ('4,8,2,3');
             Numero_de_Tarea +=1;
             break;
 
             //Serie 5
-            case 11:Respuesta3 = $('#Respuesta').val();
+            case 11:Respuesta3 = Respuesta;
 
             Correccion(Respuesta3, '4823');
             Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             
                 if (Errores <2){
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     
                     Errores = 0;
                     Respuesta1 = "";
@@ -559,7 +559,7 @@ setInterval(update, 1000);
                     Respuesta3 = "";
 
                     Consigna_Secuencia('Vamos a arrancar con las series de cinco cuadrados rojos', '3,9,8,7,1');
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     Numero_de_Tarea +=1;
                     break
                 ;}
@@ -569,28 +569,28 @@ setInterval(update, 1000);
                     break;
                 } 
             
-            case 12: Respuesta1 = $('#Respuesta').val();    
+            case 12: Respuesta1 = Respuesta;    
             Correccion(Respuesta1,'39871');                 
-            $('#Respuesta').val("");                       
+            Respuesta = '';                       
             Secuencia('6,9,7,4,8');
             Numero_de_Tarea +=1;
             break; 
 
-            case 13: Respuesta2 = $('#Respuesta').val();
+            case 13: Respuesta2 = Respuesta;
             Correccion(Respuesta2, '69748');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Secuencia ('8,7,9,2,4');
             Numero_de_Tarea +=1;
             break; 
 
             //Serie 6
-            case 14:Respuesta3 = $('#Respuesta').val();
+            case 14:Respuesta3 = Respuesta;
 
             Correccion(Respuesta3, '87924');
             Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             
                 if (Errores <2){
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     
                     Errores = 0;
                     Respuesta1 = "";
@@ -598,7 +598,7 @@ setInterval(update, 1000);
                     Respuesta3 = "";
 
                     Consigna_Secuencia('Vamos a arrancar con series de seis cuadrados rojos', '6,8,7,9,5,4');
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     Numero_de_Tarea +=1;
                     break
                 ;}
@@ -608,28 +608,28 @@ setInterval(update, 1000);
                     break;
                 } 
             
-            case 15: Respuesta1 = $('#Respuesta').val();    
+            case 15: Respuesta1 = Respuesta;    
             Correccion(Respuesta1,'687954');                 
-            $('#Respuesta').val("");                       
+            Respuesta = '';                       
             Secuencia('7,8,6,4,5,3');
             Numero_de_Tarea +=1;
             break; 
 
-            case 16: Respuesta2 = $('#Respuesta').val();
+            case 16: Respuesta2 = Respuesta;
             Correccion(Respuesta2, '786453');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Secuencia('7,6,9,5,8,4');
             Numero_de_Tarea +=1;
             break; 
             
             //Serie 7
-            case 17:Respuesta3 = $('#Respuesta').val();
+            case 17:Respuesta3 = Respuesta;
 
             Correccion(Respuesta3, '769584');
             Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             
                 if (Errores <2){
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     
                     Errores = 0;
                     Respuesta1 = "";
@@ -637,7 +637,7 @@ setInterval(update, 1000);
                     Respuesta3 = "";
 
                     Consigna_Secuencia('Vamos a arrancar con series de siete cuadrados rojos', '2,9,1,7,3,8,4');
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     Numero_de_Tarea +=1;
                     break
                 ;}
@@ -647,28 +647,28 @@ setInterval(update, 1000);
                     break;
                 } 
             
-            case 18: Respuesta1 = $('#Respuesta').val();    
+            case 18: Respuesta1 = Respuesta;    
             Correccion(Respuesta1,'2917384');                 
-            $('#Respuesta').val("");                       
+            Respuesta = '';                       
             Secuencia('6,9,4,5,8,1,7');
             Numero_de_Tarea +=1;
             break; 
 
-            case 19: Respuesta2 = $('#Respuesta').val();
+            case 19: Respuesta2 = Respuesta;
             Correccion(Respuesta2, '6945817');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Secuencia('1,5,6,2,4,9,3');
             Numero_de_Tarea +=1;
             break; 
             
             //Serie 8
-            case 20:Respuesta3 = $('#Respuesta').val();
+            case 20:Respuesta3 = Respuesta;
 
             Correccion(Respuesta3, '1562493');
             Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             
                 if (Errores <2){
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     
                     Errores = 0;
                     Respuesta1 = "";
@@ -676,7 +676,7 @@ setInterval(update, 1000);
                     Respuesta3 = "";
 
                     Consigna_Secuencia('Vamos a arrancar con series de ocho cuadrados rojos', '3,8,9,7,1,2,4,6');
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     Numero_de_Tarea +=1;
                     break
                 ;}
@@ -686,28 +686,28 @@ setInterval(update, 1000);
                     break;
                 } 
             
-            case 21: Respuesta1 = $('#Respuesta').val();    
+            case 21: Respuesta1 = Respuesta;    
             Correccion(Respuesta1,'38971246');                 
-            $('#Respuesta').val("");                       
+            Respuesta = '';                       
             Secuencia('4,5,3,9,2,1,6,8');
             Numero_de_Tarea +=1;
             break; 
 
-            case 22: Respuesta2 = $('#Respuesta').val();
+            case 22: Respuesta2 = Respuesta;
             Correccion(Respuesta2, '45392168');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Secuencia('2,1,4,5,8,3,6,9');
             Numero_de_Tarea +=1;
             break; 
             
             //Serie 9
-            case 23:Respuesta3 = $('#Respuesta').val();
+            case 23:Respuesta3 = Respuesta;
 
             Correccion(Respuesta3, '21458369');
             Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             
                 if (Errores <2){
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     
                     Errores = 0;
                     Respuesta1 = "";
@@ -715,7 +715,7 @@ setInterval(update, 1000);
                     Respuesta3 = "";
 
                     Consigna_Secuencia('Vamos a arrancar con series de nueve cuadrados rojos', '3,9,8,6,4,1,2,7,5');
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     Numero_de_Tarea +=1;
                     break
                 ;}
@@ -725,21 +725,21 @@ setInterval(update, 1000);
                     break;
                 } 
             
-            case 24: Respuesta1 = $('#Respuesta').val();    
+            case 24: Respuesta1 = Respuesta;    
             Correccion(Respuesta1,'398641275');                 
-            $('#Respuesta').val("");                       
+            Respuesta = '';                       
             Secuencia('5,7,9,8,1,2,6,4,3');
             Numero_de_Tarea +=1;
             break; 
 
-            case 25: Respuesta2 = $('#Respuesta').val();
+            case 25: Respuesta2 = Respuesta;
             Correccion(Respuesta2, '579812643');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Secuencia('9,2,6,4,5,7,1,8,3');
             Numero_de_Tarea +=1;
             break; 
 
-            case 26: Respuesta3 = $('#Respuesta').val();
+            case 26: Respuesta3 = Respuesta;
             Correccion(Respuesta3, '926457183');
             Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             Numero_de_Tarea = 0;
@@ -767,7 +767,7 @@ setInterval(update, 1000);
             break;
 
             case 3: Consigna_Secuencia('Vamos a hacer uno más de prueba', '8,6,4');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Combinacion_Poligonos = [P7, P10, P12];
             Numero_de_Tarea +=1;
             break;
@@ -782,15 +782,15 @@ setInterval(update, 1000);
             
             //Serie 2
             case 5: Consigna_Boton('Esa fue la práctica.<br> Ahora vamos a empezar con la tarea.','Vamos a arrancar con las series de dos cuadrados azules', '8,6');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Combinacion_Poligonos = [P6, P12, P8];
             Numero_de_Tarea +=1;
             break; 
 
-            case 6: Respuesta1 = $('#Respuesta').val();  //Almaceno la Respuesta
+            case 6: Respuesta1 = Respuesta;  //Almaceno la Respuesta
             Poligono_Respuesta1 = Poligono_Elegido;      //Almaceno el Poligono Elegido 
             Correccion(Respuesta1,'86');                 //Corrijo
-            $('#Respuesta').val("");                     //Vacio el input type text
+            Respuesta = '';                     //Vacio el input type text
             Poligono_Elegido = '';                       //Vacio la variable del Poligono Elegido
             
             Secuencia('5,2');
@@ -798,10 +798,10 @@ setInterval(update, 1000);
             Numero_de_Tarea +=1;
             break; 
 
-            case 7: Respuesta2 = $('#Respuesta').val();
+            case 7: Respuesta2 = Respuesta;
             Poligono_Respuesta2 = Poligono_Elegido;
             Correccion(Respuesta2, '52');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Poligono_Elegido = '';   
             
             Secuencia ('9,1');
@@ -810,13 +810,13 @@ setInterval(update, 1000);
             break; 
 
             //Serie 3
-            case 8:Respuesta3 = $('#Respuesta').val();
+            case 8:Respuesta3 = Respuesta;
             Poligono_Respuesta3 = Poligono_Elegido;
             Correccion(Respuesta3, '91');
             Guardar_Datos_Brutos_CI(Respuesta1, Poligono_Respuesta1, Respuesta2, Poligono_Respuesta2, Respuesta3, Poligono_Respuesta3);
             
                 if (Errores <2){
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     
                     Errores = 0;
                     Respuesta1 = "";
@@ -827,7 +827,7 @@ setInterval(update, 1000);
                     Poligono_Respuesta3 = "";
 
                     Consigna_Secuencia('Vamos a arrancar con las series de tres cuadrados azules', '1,3,8');
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     Poligono_Elegido = '';
                     Combinacion_Poligonos= [P7, P10, P8];
                     Numero_de_Tarea +=1;
@@ -839,10 +839,10 @@ setInterval(update, 1000);
                     break;
                 } 
             
-            case 9: Respuesta1 = $('#Respuesta').val();  
+            case 9: Respuesta1 = Respuesta;  
             Poligono_Respuesta1 = Poligono_Elegido;      
             Correccion(Respuesta1,'138');                
-            $('#Respuesta').val("");                     
+            Respuesta = '';                     
             Poligono_Elegido = '';                        
                 
             Secuencia('2,1,4');
@@ -850,10 +850,10 @@ setInterval(update, 1000);
             Numero_de_Tarea +=1;
             break; 
     
-            case 10: Respuesta2 = $('#Respuesta').val();
+            case 10: Respuesta2 = Respuesta;
             Poligono_Respuesta2 = Poligono_Elegido;
             Correccion(Respuesta2, '214');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Poligono_Elegido = '';   
                 
             Secuencia ('7,5,6');
@@ -862,13 +862,13 @@ setInterval(update, 1000);
             break; 
             
             //Serie 4
-            case 11:Respuesta3 = $('#Respuesta').val();
+            case 11:Respuesta3 = Respuesta;
             Poligono_Respuesta3 = Poligono_Elegido;
             Correccion(Respuesta3, '756');
             Guardar_Datos_Brutos_CI(Respuesta1, Poligono_Respuesta1, Respuesta2, Poligono_Respuesta2, Respuesta3, Poligono_Respuesta3);
         
                 if (Errores <2){
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     
                     Errores = 0;
                     Respuesta1 = "";
@@ -879,7 +879,7 @@ setInterval(update, 1000);
                     Poligono_Respuesta3 = "";
 
                     Consigna_Secuencia('Vamos a arrancar con series de cuatro cuadrados azules.', '3,7,8,2');
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     Poligono_Elegido = '';
                     Combinacion_Poligonos= [P10, P8, P12];
                     Numero_de_Tarea +=1;
@@ -891,10 +891,10 @@ setInterval(update, 1000);
                     break;
                 } 
         
-            case 12: Respuesta1 = $('#Respuesta').val();  
+            case 12: Respuesta1 = Respuesta;  
             Poligono_Respuesta1 = Poligono_Elegido;      
             Correccion(Respuesta1,'3782');                
-            $('#Respuesta').val("");                     
+            Respuesta = '';                     
             Poligono_Elegido = '';                        
                 
             Secuencia('4,5,2,6');
@@ -902,10 +902,10 @@ setInterval(update, 1000);
             Numero_de_Tarea +=1;
             break; 
 
-            case 13: Respuesta2 = $('#Respuesta').val();
+            case 13: Respuesta2 = Respuesta;
             Poligono_Respuesta2 = Poligono_Elegido;
             Correccion(Respuesta2, '4526');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Poligono_Elegido = '';   
                 
             Secuencia ('9,4,3,8');
@@ -914,13 +914,13 @@ setInterval(update, 1000);
             break; 
 
             //Serie 5
-            case 14:Respuesta3 = $('#Respuesta').val();
+            case 14:Respuesta3 = Respuesta;
             Poligono_Respuesta3 = Poligono_Elegido;
             Correccion(Respuesta3, '9438');
             Guardar_Datos_Brutos_CI(Respuesta1, Poligono_Respuesta1, Respuesta2, Poligono_Respuesta2, Respuesta3, Poligono_Respuesta3);
             
                 if (Errores <2){
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     
                     Errores = 0;
                     Respuesta1 = "";
@@ -931,7 +931,7 @@ setInterval(update, 1000);
                     Poligono_Respuesta3 = "";
 
                     Consigna_Secuencia('Vamos a arrancar con series de cinco cuadrados azules.', '9,2,5,1,6');
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     Poligono_Elegido = '';
                     Combinacion_Poligonos= [P10, P8, P7];
                     Numero_de_Tarea +=1;
@@ -943,10 +943,10 @@ setInterval(update, 1000);
                     break;
                 } 
             
-            case 15: Respuesta1 = $('#Respuesta').val();  
+            case 15: Respuesta1 = Respuesta;  
             Poligono_Respuesta1 = Poligono_Elegido;      
             Correccion(Respuesta1,'92516');                
-            $('#Respuesta').val("");                     
+            Respuesta = '';                     
             Poligono_Elegido = '';                        
                 
             Secuencia('1,3,5,8,7');
@@ -954,10 +954,10 @@ setInterval(update, 1000);
             Numero_de_Tarea +=1;
             break; 
     
-            case 16: Respuesta2 = $('#Respuesta').val();
+            case 16: Respuesta2 = Respuesta;
             Poligono_Respuesta2 = Poligono_Elegido;
             Correccion(Respuesta2, '13587');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Poligono_Elegido = '';   
                 
             Secuencia ('4,6,9,7,3');
@@ -966,13 +966,13 @@ setInterval(update, 1000);
             break; 
 
             //Serie 6
-            case 17:Respuesta3 = $('#Respuesta').val();
+            case 17:Respuesta3 = Respuesta;
             Poligono_Respuesta3 = Poligono_Elegido;
             Correccion(Respuesta3, '46973');
             Guardar_Datos_Brutos_CI(Respuesta1, Poligono_Respuesta1, Respuesta2, Poligono_Respuesta2, Respuesta3, Poligono_Respuesta3);
             
                 if (Errores <2){
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     
                     Errores = 0;
                     Respuesta1 = "";
@@ -983,7 +983,7 @@ setInterval(update, 1000);
                     Poligono_Respuesta3 = "";
 
                     Consigna_Secuencia('Vamos a arrancar con series de seis cuadrados azules.', '4,9,2,6,7,1');
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     Poligono_Elegido = '';
                     Combinacion_Poligonos= [P6, P5, P8];
                     Numero_de_Tarea +=1;
@@ -995,10 +995,10 @@ setInterval(update, 1000);
                     break;
                 } 
             
-            case 18: Respuesta1 = $('#Respuesta').val();  
+            case 18: Respuesta1 = Respuesta;  
             Poligono_Respuesta1 = Poligono_Elegido;      
             Correccion(Respuesta1,'492671');                
-            $('#Respuesta').val("");                     
+            Respuesta = '';                     
             Poligono_Elegido = '';                        
                 
             Secuencia('5,3,1,7,4,2');
@@ -1006,10 +1006,10 @@ setInterval(update, 1000);
             Numero_de_Tarea +=1;
             break; 
     
-            case 19: Respuesta2 = $('#Respuesta').val();
+            case 19: Respuesta2 = Respuesta;
             Poligono_Respuesta2 = Poligono_Elegido;
             Correccion(Respuesta2, '531742');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Poligono_Elegido = '';   
                 
             Secuencia ('8,6,3,9,4,1');
@@ -1018,13 +1018,13 @@ setInterval(update, 1000);
             break; 
 
             //Serie 7
-            case 20:Respuesta3 = $('#Respuesta').val();
+            case 20:Respuesta3 = Respuesta;
             Poligono_Respuesta3 = Poligono_Elegido;
             Correccion(Respuesta3, '863941');
             Guardar_Datos_Brutos_CI(Respuesta1, Poligono_Respuesta1, Respuesta2, Poligono_Respuesta2, Respuesta3, Poligono_Respuesta3);
             
                 if (Errores <2){
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     
                     Errores = 0;
                     Respuesta1 = "";
@@ -1035,7 +1035,7 @@ setInterval(update, 1000);
                     Poligono_Respuesta3 = "";
 
                     Consigna_Secuencia('Vamos a arrancar con series de siete cuadrados azules.', '4,1,8,7,5,2,9');
-                    $('#Respuesta').val("");
+                    Respuesta = '';
                     Poligono_Elegido = '';
                     Combinacion_Poligonos= [P5, P6, P8];
                     Numero_de_Tarea +=1;
@@ -1047,10 +1047,10 @@ setInterval(update, 1000);
                     break;
                 } 
             
-            case 21: Respuesta1 = $('#Respuesta').val();  
+            case 21: Respuesta1 = Respuesta;  
             Poligono_Respuesta1 = Poligono_Elegido;      
             Correccion(Respuesta1,'4187529');                
-            $('#Respuesta').val("");                     
+            Respuesta = '';                     
             Poligono_Elegido = '';                        
                 
             Secuencia('3,9,7,5,4,1,6');
@@ -1058,10 +1058,10 @@ setInterval(update, 1000);
             Numero_de_Tarea +=1;
             break; 
     
-            case 22: Respuesta2 = $('#Respuesta').val();
+            case 22: Respuesta2 = Respuesta;
             Poligono_Respuesta2 = Poligono_Elegido;
             Correccion(Respuesta2, '3975416');
-            $('#Respuesta').val("");
+            Respuesta = '';
             Poligono_Elegido = '';   
                 
             Secuencia ('9,3,5,6,7,4,2');
@@ -1069,7 +1069,7 @@ setInterval(update, 1000);
             Numero_de_Tarea +=1;
             break; 
 
-            case 23:Respuesta3 = $('#Respuesta').val();
+            case 23:Respuesta3 = Respuesta;
             Poligono_Respuesta3 = Poligono_Elegido;
             Correccion(Respuesta3, '9356742');
             Guardar_Datos_Brutos_CI(Respuesta1, Poligono_Respuesta1, Respuesta2, Poligono_Respuesta2, Respuesta3, Poligono_Respuesta3);
