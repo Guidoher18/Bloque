@@ -93,9 +93,7 @@ $(document).ready(function(){
         setTimeout(Despintar, 325, Selector);
     };
 
-
-//Secuencia, Obtener_Parametros, Mostrar, A, B, C, D, E, F, G, H, I y Pregunta: suena el beep y luego se muestra la secuencia de bloques de a uno por vez cada 1seg. Luego aparece el signo de ? y se muestran nuevamente los bloques para que el sujeto elija 
-    
+    //Secuencia, Obtener_Parametros, Mostrar, A, B, C, D, E, F, G, H, I y Pregunta: suena el beep y luego se muestra la secuencia de bloques de a uno por vez cada 1seg. Luego aparece el signo de ? y se muestran nuevamente los bloques para que el sujeto elija 
     var Secuencia = function(y){                //Reproduce el Beep antes de f(x)Mostrar la secuencia
         Habilitar_Clic = 0;
         audio.play();
@@ -122,40 +120,33 @@ $(document).ready(function(){
         Serie = Parametros.length;              //Serie: Cantidad de items en la serie 
 
         //Dependiendo de la cant de items de la Serie, varían los parámetros que le paso a la Función A
-        //REEMPLAZAR CON UN SWITCH !!!!!
-        if (Serie == 2)
-        {
-            A(Serie, Parametros[0], Parametros[1]);
-        }
-        else if (Serie == 3)
-        {
-            A(Serie, Parametros[0], Parametros[1], Parametros[2]);
-        }
-        else if (Serie == 4)
-        {
-            A(Serie, Parametros[0], Parametros[1], Parametros[2], Parametros[3]);
-        }
-        else if (Serie == 5)
-        {
-            A(Serie, Parametros[0], Parametros[1], Parametros[2], Parametros[3], Parametros[4]);
-        }
-        else if (Serie == 6)
-        {
-            A(Serie, Parametros[0], Parametros[1], Parametros[2], Parametros[3], Parametros[4], Parametros[5]);
-        }
-        else if (Serie == 7)
-        {
-            A(Serie, Parametros[0], Parametros[1], Parametros[2], Parametros[3], Parametros[4], Parametros[5], Parametros[6]);
-        }
-        else if (Serie == 8)
-        {
-            A(Serie, Parametros[0], Parametros[1], Parametros[2], Parametros[3], Parametros[4], Parametros[5], Parametros[6], Parametros[7]);
-        }
-        else if (Serie == 9)
-        {
-            A(Serie, Parametros[0], Parametros[1], Parametros[2], Parametros[3], Parametros[4], Parametros[5], Parametros[6], Parametros[7], Parametros[8]);
-        }};
-
+        switch(Serie){
+            case 2: A(Serie, Parametros[0], Parametros[1]);
+            break;
+            
+            case 3: A(Serie, Parametros[0], Parametros[1], Parametros[2]);
+            break;
+            
+            case 4: A(Serie, Parametros[0], Parametros[1], Parametros[2], Parametros[3]);
+            break;
+            
+            case 5: A(Serie, Parametros[0], Parametros[1], Parametros[2], Parametros[3], Parametros[4]);
+            break;
+            
+            case 6: A(Serie, Parametros[0], Parametros[1], Parametros[2], Parametros[3], Parametros[4], Parametros[5]);
+            break;
+            
+            case 7: A(Serie, Parametros[0], Parametros[1], Parametros[2], Parametros[3], Parametros[4], Parametros[5], Parametros[6]);
+            break;
+            
+            case 8: A(Serie, Parametros[0], Parametros[1], Parametros[2], Parametros[3], Parametros[4], Parametros[5], Parametros[6], Parametros[7]);
+            break;
+            
+            case 9: A(Serie, Parametros[0], Parametros[1], Parametros[2], Parametros[3], Parametros[4], Parametros[5], Parametros[6], Parametros[7], Parametros[8]);
+            break;
+        };
+    };
+    
     //Funciones encadenadas que permiten mostrar la secuencia de hasta nueve bloques al estilo del juego "Simon Says"
     var A = function (Serie, a, b, c, d, e, f, g, h, i) {
         Pintar(a);
@@ -273,7 +264,8 @@ $(document).ready(function(){
          },1000);
     }
 
-    var Pregunta = function(){                              //Luego de la Secuencia de Bloques muestra el ?
+    //Luego de la Secuencia de Bloques muestra el ? o Polígonos + ?
+    var Pregunta = function(){                              
         if (Modalidad == 'rojo')
         {      
           $('#Instructivo').css('display', 'none');
@@ -304,15 +296,15 @@ $(document).ready(function(){
         }
     };
     
-    var Crear_Poligono = function(A){ //A es un Array que contiene los Polígonos a mostrar
+    //A es un Array que contiene los Polígonos a mostrar
+    var Crear_Poligono = function(A){ 
         $('#PA').html(A[0]);
         $('#PB').html(A[1]);
         $('#PC').html(A[2]);
         Habilitar_Clic_Poligono = 1;
     };
-    
-    
-
+        
+//PARA BORRAR DESDE ACÁ >>>>>>>>>>
 function update() {
   $('#clock').html(moment().format('mm:ss'));
 }
@@ -324,6 +316,8 @@ setInterval(update, 1000);
 //Secuencia(x);
 //});
 //    
+
+//PARA BORRAR HASTA ACÁ <<<<<<<<<<<<<<<<<<<<<<<<<<
 
     var Consigna_Boton = function(Consigna, a, b){ 
         //a: elementos de html con consigna 
@@ -366,7 +360,8 @@ setInterval(update, 1000);
             }, 4000);            
     };
 
-    var Correccion = function(a,b){  //Corrige las respuestas
+    //Corrige las respuestas
+    var Correccion = function(a,b){  
         if(a != b)
         {
             Errores +=1;
@@ -377,7 +372,8 @@ setInterval(update, 1000);
         }
     };
 
-    var Guardar_Datos_Brutos = function(a, b, c){       //Almacena las respuestas de la serie
+    //Almacena las respuestas de la serie CS
+    var Guardar_Datos_Brutos_CS = function(a, b, c){       
         Datos_Brutos = Datos_Brutos + "[Serie " + a.length + ": " + a + ", "+ b + ", " + c + "] ";    
     };
 
@@ -443,17 +439,10 @@ setInterval(update, 1000);
                 
                 $('div[class="bloques"]').css('display', 'block');
             }, 5000); 
-
-
-
-
-
-
-
-
     };
 
-    var Guardar_Datos_Brutos_CI = function(a, pa, b, pb, c, pc){       //Almacena las respuestas de la serie
+    //Almacena las respuestas de la serie CI
+    var Guardar_Datos_Brutos_CI = function(a, pa, b, pb, c, pc){       
         Datos_Brutos = Datos_Brutos + "[Serie " + a.length + ": " + a + " - " + pa +', '+ b + " - " + pb +', '+ c + " - " + pc +'] ';
     };
 
@@ -520,7 +509,7 @@ setInterval(update, 1000);
             case 8:Respuesta3 = $('#Respuesta').val();
 
             Correccion(Respuesta3, '385');
-            Guardar_Datos_Brutos(Respuesta1, Respuesta2, Respuesta3);
+            Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             
                 if (Errores <2){
                     $('#Respuesta').val("");
@@ -559,7 +548,7 @@ setInterval(update, 1000);
             case 11:Respuesta3 = $('#Respuesta').val();
 
             Correccion(Respuesta3, '4823');
-            Guardar_Datos_Brutos(Respuesta1, Respuesta2, Respuesta3);
+            Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             
                 if (Errores <2){
                     $('#Respuesta').val("");
@@ -598,7 +587,7 @@ setInterval(update, 1000);
             case 14:Respuesta3 = $('#Respuesta').val();
 
             Correccion(Respuesta3, '87924');
-            Guardar_Datos_Brutos(Respuesta1, Respuesta2, Respuesta3);
+            Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             
                 if (Errores <2){
                     $('#Respuesta').val("");
@@ -637,7 +626,7 @@ setInterval(update, 1000);
             case 17:Respuesta3 = $('#Respuesta').val();
 
             Correccion(Respuesta3, '769584');
-            Guardar_Datos_Brutos(Respuesta1, Respuesta2, Respuesta3);
+            Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             
                 if (Errores <2){
                     $('#Respuesta').val("");
@@ -676,7 +665,7 @@ setInterval(update, 1000);
             case 20:Respuesta3 = $('#Respuesta').val();
 
             Correccion(Respuesta3, '1562493');
-            Guardar_Datos_Brutos(Respuesta1, Respuesta2, Respuesta3);
+            Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             
                 if (Errores <2){
                     $('#Respuesta').val("");
@@ -715,7 +704,7 @@ setInterval(update, 1000);
             case 23:Respuesta3 = $('#Respuesta').val();
 
             Correccion(Respuesta3, '21458369');
-            Guardar_Datos_Brutos(Respuesta1, Respuesta2, Respuesta3);
+            Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             
                 if (Errores <2){
                     $('#Respuesta').val("");
@@ -752,7 +741,7 @@ setInterval(update, 1000);
 
             case 26: Respuesta3 = $('#Respuesta').val();
             Correccion(Respuesta3, '926457183');
-            Guardar_Datos_Brutos(Respuesta1, Respuesta2, Respuesta3);
+            Guardar_Datos_Brutos_CS(Respuesta1, Respuesta2, Respuesta3);
             Numero_de_Tarea = 0;
             SalidaCS();
             break; 
@@ -1089,7 +1078,7 @@ setInterval(update, 1000);
         };
     };
 
-    //POLIGONOS SVG HTML: http://w3.unpocodetodo.info/svg/poligonos-regulares.php
+    //POLÍGONOS SVG HTML tomados de: http://w3.unpocodetodo.info/svg/poligonos-regulares.php
 
     //PENTÁGONO
     var P5 = '<polygon id ="P5" transform="rotate(-90 60 60)" points="110,60 75.45084971874738,107.55282581475768 19.549150281252636,89.38926261462366 19.54915028125263,30.61073738537635 75.45084971874736,12.447174185242318 110,59.999999999999986 " style="fill:#FF0000"></polygon>';
@@ -1110,7 +1099,5 @@ setInterval(update, 1000);
     var P12 = '<polygon id ="P12"  transform="rotate(-75 60 60)" points="110,60 103.30127018922194,85 85,103.30127018922192 60,110 35.000000000000014,103.30127018922194 16.69872981077806,85 10,60.00000000000001 16.69872981077807,34.99999999999999 34.99999999999998,16.698729810778076 59.99999999999999,10 85,16.69872981077807 103.30127018922192,34.99999999999998 110,59.999999999999986 " style="fill:#FF0000"></polygon>';
 
     Numero_de_Tarea = 1;
-    Itinerario_CI(1);
-
+    Itinerario_CS(1);
 });
-
