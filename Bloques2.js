@@ -2,11 +2,11 @@ $(document).ready(function(){
     var audio = document.getElementById("audio");
     
     //Variables Generales para el Test de las Series ppdd
-    var Respuesta = ''; //Almacena la respuesta del Sujeto
+    var Respuesta = '';      //Almacena la respuesta del Sujeto
     
-    var Modalidad = ''; //'rojo', Corsi Simple | 'azul', Corsi con Interferencia
+    var Modalidad = '';      //'rojo', Corsi Simple | 'azul', Corsi con Interferencia
 
-    var Habilitar_Clic = 0; //Permite habilitar el $('div[class="bloques"]').on('click'... sólo cuando responde el sujeto
+    var Habilitar_Clic = 0;  //Permite habilitar el $('div[class="bloques"]').on('click'... sólo cuando responde el sujeto
 
     var Numero_de_Tarea = 0; //Permite seguir el Itinerario
     var Serie = 0;
@@ -101,7 +101,7 @@ $(document).ready(function(){
             Mostrar(y);    
         },3000)};
 
-    var Obtener_Parametros = function(g){        //g: String con los items ej.: '4, 5, 6, 7'
+    var Obtener_Parametros = function(g){       //g: String con los items ej.: '4, 5, 6, 7'
         var Bloques = [];                      
         Bloques = g.toString().split(",");                 //Toma los items y los separa en la lista Bloques
         var Parametros = [];
@@ -491,8 +491,8 @@ setInterval(update, 1000);
             Numero_de_Tarea +=1;
             break; 
 
-            case 6: Respuesta1 = Respuesta;  //Almaceno la Respuesta
-            Correccion(Respuesta1,'524');                //Corrijo
+            case 6: Respuesta1 = Respuesta;     //Almaceno la Respuesta
+            Correccion(Respuesta1,'524');       //Corrijo
             Respuesta = '';                     //Vacio el input type text
             Secuencia('9,2,6');
             Numero_de_Tarea +=1;
@@ -787,10 +787,10 @@ setInterval(update, 1000);
             Numero_de_Tarea +=1;
             break; 
 
-            case 6: Respuesta1 = Respuesta;  //Almaceno la Respuesta
+            case 6: Respuesta1 = Respuesta;              //Almaceno la Respuesta
             Poligono_Respuesta1 = Poligono_Elegido;      //Almaceno el Poligono Elegido 
             Correccion(Respuesta1,'86');                 //Corrijo
-            Respuesta = '';                     //Vacio el input type text
+            Respuesta = '';                              //Vacio el input type text
             Poligono_Elegido = '';                       //Vacio la variable del Poligono Elegido
             
             Secuencia('5,2');
