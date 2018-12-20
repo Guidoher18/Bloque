@@ -68,6 +68,7 @@ $(document).ready(function(){
             $('#' + Poligono_Elegido).attr('stroke','#002060');
             $('#' + Poligono_Elegido).attr('stroke-width','2');
             Habilitar_Clic_Poligono = 0;
+            $('polygon').css('cursor', 'default');
         }
         else{
             return false;
@@ -279,10 +280,11 @@ $(document).ready(function(){
                 setTimeout(function(){
                     $('#Pregunta').css('display', 'none');
                     $('div[class="bloques"]').css('display', 'block');
+                    $('polygon').css('cursor', 'pointer');
                     Conteo_de_Clic_en_Bloque = 0;
                     Habilitar_Clic = 1;
                 },1000);
-            },20000);
+            },19000);
         }
     };
     
