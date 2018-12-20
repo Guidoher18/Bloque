@@ -146,26 +146,34 @@ $(document).ready(function(){
             break;
         };
     };
-    
+
+    var Pregunta_Demorada = function(){
+        setTimeout(function(){
+            Pregunta();
+        },1000);
+    };
+
     //Funciones encadenadas que permiten mostrar la secuencia de hasta nueve bloques al estilo del juego "Simon Says"
     var A = function (Serie, a, b, c, d, e, f, g, h, i) {
         Pintar(a);
         setTimeout(function () {
             Despintar(a);
-            B(Serie, b, c, d, e, f, g, h, i);
+            switch(Serie){
+                case 1: 
+                break;
+                default: B(Serie, b, c, d, e, f, g, h, i);
+                break;
+            }
         }, 1000);};
 
     var B = function (Serie, b, c, d, e, f, g, h, i) {
         Pintar(b);
         setTimeout(function () {
             Despintar(b);
-            if (Serie > 2) {
-                C(Serie, c, d, e, f, g, h, i);
-            }
-            else{
-              setTimeout(function(){
-                Pregunta();
-              }, 1000);
+            switch(Serie){
+                case 2: Pregunta_Demorada();
+                break;
+                default: C(Serie, c, d, e, f, g, h, i);
             }
         }, 1000);};
 
@@ -173,13 +181,10 @@ $(document).ready(function(){
         Pintar(c);
         setTimeout(function () {
             Despintar(c);
-            if (Serie > 3) {
-                D(Serie, d, e, f, g, h, i);
-            }
-            else{
-              setTimeout(function(){
-                Pregunta();
-              }, 1000);
+            switch(Serie){
+                case 3: Pregunta_Demorada();
+                break;
+                default: D(Serie, d, e, f, g, h, i);
             }
         }, 1000);};
 
@@ -187,13 +192,10 @@ $(document).ready(function(){
         Pintar(d);
         setTimeout(function () {
             Despintar(d);
-            if (Serie > 4) {
-                E(Serie, e, f, g, h, i);
-            }
-            else{
-              setTimeout(function(){
-                Pregunta();
-              }, 1000);
+            switch(Serie){
+                case 4: Pregunta_Demorada();
+                break;
+                default: E(Serie, e, f, g, h, i);
             }
         }, 1000);};
 
@@ -201,13 +203,10 @@ $(document).ready(function(){
         Pintar(e);
         setTimeout(function () {
             Despintar(e);
-            if (Serie > 5) {
-                F(Serie, f, g, h, i);
-            }
-            else{
-              setTimeout(function(){
-                Pregunta();
-              }, 1000);
+            switch(Serie){
+                case 5: Pregunta_Demorada();
+                break;
+                default: F(Serie, f, g, h, i);
             }
         }, 1000);};
 
@@ -215,13 +214,10 @@ $(document).ready(function(){
         Pintar(f);
         setTimeout(function () {
             Despintar(f);
-            if (Serie > 6) {
-                G(Serie, g, h, i);
-            }
-            else{
-              setTimeout(function(){
-                Pregunta();
-              }, 1000);
+            switch(Serie){
+                case 6: Pregunta_Demorada();
+                break;
+                default: G(Serie, g, h, i);
             }
         }, 1000);};
 
@@ -229,13 +225,10 @@ $(document).ready(function(){
         Pintar(g);
         setTimeout(function () {
             Despintar(g);
-            if (Serie > 7) {
-                H(Serie, h, i);
-            }
-            else{
-              setTimeout(function(){
-                Pregunta();
-              }, 1000);
+            switch(Serie){
+                case 7: Pregunta_Demorada();
+                break;
+                default: H(Serie, h, i);
             }
         }, 1000);};
 
@@ -243,13 +236,10 @@ $(document).ready(function(){
         Pintar(h);
         setTimeout(function () {
             Despintar(h);
-            if (Serie > 8) {
-                I(i);
-            }
-            else{
-              setTimeout(function(){
-                Pregunta();
-              }, 1000);
+            switch(Serie){
+                case 8: Pregunta_Demorada();
+                break;
+                default: I(i);
             }
         }, 1000);};
 
@@ -257,10 +247,10 @@ $(document).ready(function(){
         Pintar(i);
         setTimeout(function(){
             Despintar(i);
-            if (Serie == 9){
-                setTimeout(function(){
-                Pregunta();
-            }, 1000);}
+            switch(Serie){
+                case 9: Pregunta_Demorada();
+                break;
+            }
          },1000);
     }
 
