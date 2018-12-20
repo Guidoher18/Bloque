@@ -294,21 +294,6 @@ $(document).ready(function(){
         Habilitar_Clic_Poligono = 1;
     };
         
-//PARA BORRAR DESDE ACÁ >>>>>>>>>>
-function update() {
-  $('#clock').html(moment().format('mm:ss'));
-}
-
-setInterval(update, 1000);
-
-//$('div[class="bloques"]').css('display', 'block');
-//var x = "1,2,3,4,5,6,7,8,9";
-//Secuencia(x);
-//});
-//    
-
-//PARA BORRAR HASTA ACÁ <<<<<<<<<<<<<<<<<<<<<<<<<<
-
     var Consigna_Boton = function(Consigna, a, b){ 
         //a: elementos de html con consigna 
         //b: función a la que redirige el boton
@@ -373,7 +358,7 @@ setInterval(update, 1000);
         $('#Puntaje_CS').val(Puntaje);
         TRb = new moment();
         var Duration = moment.duration(TRb.diff(TRa)).as('milliseconds');
-        $('#TR_CS').val(Duration);
+        $('#TR_CS').val(Duration.toString());
 
         //Reinicio las Variables 
         Habilitar_Clic = 0;
@@ -442,7 +427,7 @@ setInterval(update, 1000);
             $('#Puntaje_CI').val(Puntaje);
             TRd = new moment();
             var Duration = moment.duration(TRd.diff(TRc)).as('milliseconds');
-            $('#TR_CI').val(Duration);
+            $('#TR_CI').val(Duration.toString());
             $('#Submit').click();
     };
 
